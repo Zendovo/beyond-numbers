@@ -17,7 +17,7 @@ from fred_apis import FREDDataFetcher
 
 def fetch_all_data():
     """Fetch all economic indicators from Bruno files"""
-    print("🚀 Starting FRED data fetching process...")
+    print("Starting FRED data fetching process...")
     
     # Initialize the fetcher
     fetcher = FREDDataFetcher(data_dir="data")
@@ -30,22 +30,22 @@ def fetch_all_data():
         delay=0.5  # Be respectful to the API
     )
     
-    print(f"✅ Successfully fetched data for {len(data)} indicators")
+    print(f"Successfully fetched data for {len(data)} indicators")
     return data
 
 def fetch_recent_updates():
     """Fetch only recent data updates"""
-    print("🔄 Updating recent data...")
+    print("Updating recent data...")
     
     fetcher = FREDDataFetcher(data_dir="data")
     data = fetcher.update_data(days_back=30)
     
-    print(f"✅ Updated {len(data)} indicators with recent data")
+    print(f"Updated {len(data)} indicators with recent data")
     return data
 
 def fetch_specific_indicator():
     """Example of fetching a specific economic indicator"""
-    print("📊 Fetching GDP data...")
+    print("Fetching GDP data...")
     
     fetcher = FREDDataFetcher(api_key="5345a9b784e816d1110d3f47c97cdfd3", data_dir="data")
     
@@ -53,10 +53,10 @@ def fetch_specific_indicator():
     gdp_data = fetcher.fetch_series_data("GDP", start_date="2010-01-01")
     
     if gdp_data is not None:
-        print(f"✅ Fetched {len(gdp_data)} GDP observations")
+        print(f"Fetched {len(gdp_data)} GDP observations")
         fetcher.save_data(gdp_data, "gdp_example", "json")
     else:
-        print("❌ Failed to fetch GDP data")
+        print("Failed to fetch GDP data")
 
 if __name__ == "__main__":
     import argparse
