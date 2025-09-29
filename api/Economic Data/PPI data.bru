@@ -1,0 +1,29 @@
+meta {
+  name: PPI data
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://api.stlouisfed.org/fred/series/observations?series_id=PPIACO&api_key=5345a9b784e816d1110d3f47c97cdfd3&file_type=json
+  body: none
+  auth: inherit
+}
+
+params:query {
+  series_id: PPIACO
+  api_key: 5345a9b784e816d1110d3f47c97cdfd3
+  file_type: json
+  ~realtime_start: 1776-07-04
+  ~realtime_end: 9999-12-31
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  https://fred.stlouisfed.org/series/CPALTT01USM657N
+  https://fred.stlouisfed.org/series/CPIAUCSL
+  https://fred.stlouisfed.org/series/STICKCPIM157SFRBATL
+}
